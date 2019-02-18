@@ -4,5 +4,5 @@
 [x] location schema, lat, long & referencing pharmacy_id, controller, views
 [x] order schema referencing patient_id, prescription_id, location_id, controller, views
 [x] seed data
-[] assocations
+[x] assocations
 [] auth
