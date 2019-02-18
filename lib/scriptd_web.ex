@@ -23,6 +23,8 @@ defmodule ScriptdWeb do
 
       import Plug.Conn
       import ScriptdWeb.Gettext
+      import ScriptdWeb.Helpers.Auth, only: [signed_in?: 1]
+
       alias ScriptdWeb.Router.Helpers, as: Routes
     end
   end
