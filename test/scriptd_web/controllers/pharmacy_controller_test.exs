@@ -12,19 +12,12 @@ defmodule ScriptdWeb.PharmacyControllerTest do
     pharmacy
   end
 
-  # describe "index" do
-  #   test "lists all pharmacies", %{conn: conn} do
-  #     conn = get(conn, Routes.pharmacy_path(conn, :index))
-  #     assert html_response(conn, 200) =~ "Listing Pharmacies"
-  #   end
-  # end
-
-  # describe "new pharmacy" do
-  #   test "renders form", %{conn: conn} do
-  #     conn = get(conn, Routes.pharmacy_path(conn, :new))
-  #     assert html_response(conn, 200) =~ "New Pharmacy"
-  #   end
-  # end
+  describe "new pharmacy" do
+    test "renders form", %{conn: conn} do
+      conn = get(conn, Routes.pharmacy_path(conn, :new))
+      assert html_response(conn, 200) =~ "New Pharmacy"
+    end
+  end
 
   describe "create pharmacy" do
     # test "redirects to show when data is valid", %{conn: conn} do

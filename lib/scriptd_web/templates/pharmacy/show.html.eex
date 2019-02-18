@@ -1,13 +1,8 @@
-<h1>Show Pharmacy</h1>
+<h1><%= @pharmacy.name %></h1>
+<li>
+  <ul><%= link "New Location", to: Routes.location_path(@conn, :new) %></ul>
+</li>
 
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @pharmacy.name %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.pharmacy_path(@conn, :edit, @pharmacy) %></span>
+<span><%= link "Edit Profile", to: Routes.location_path(@conn, :new) %></span>
+| 
 <span><%= link "Back", to: Routes.pharmacy_path(@conn, :index) %></span>

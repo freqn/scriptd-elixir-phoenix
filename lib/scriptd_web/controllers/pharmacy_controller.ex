@@ -20,7 +20,7 @@ defmodule ScriptdWeb.PharmacyController do
         conn
         |> put_session(:current_user_id, pharmacy.id)
         |> put_flash(:info, "#{pharmacy.name} registered successfully.")
-        |> redirect(to: Routes.order_path(conn, :index))
+        |> redirect(to: Routes.pharmacy_path(conn, :show, pharmacy))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
