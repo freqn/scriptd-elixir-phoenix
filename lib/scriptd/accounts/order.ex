@@ -2,12 +2,13 @@ defmodule Scriptd.Accounts.Order do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Scriptd.Accounts.Location
+  alias Scriptd.Accounts.Patient
 
   schema "orders" do
     field :prescription_id, :integer
-    field :location_id, :id
-    field :patient_id, :id
-
+    belongs_to :patient, Patient
+    belongs_to :location, Location
     timestamps()
   end
 
