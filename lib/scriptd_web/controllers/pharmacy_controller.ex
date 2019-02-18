@@ -4,10 +4,10 @@ defmodule ScriptdWeb.PharmacyController do
   alias Scriptd.Accounts
   alias Scriptd.Accounts.Pharmacy
 
-  def index(conn, _params) do
-    pharmacies = Accounts.list_pharmacies()
-    render(conn, "index.html", pharmacies: pharmacies)
-  end
+  # def index(conn, _params) do
+  #   pharmacies = Accounts.list_pharmacies()
+  #   render(conn, "index.html", pharmacies: pharmacies)
+  # end
 
   def new(conn, _params) do
     changeset = Accounts.change_pharmacy(%Pharmacy{})
@@ -18,8 +18,9 @@ defmodule ScriptdWeb.PharmacyController do
     case Accounts.create_pharmacy(pharmacy_params) do
       {:ok, pharmacy} ->
         conn
-        |> put_flash(:info, "Pharmacy created successfully.")
-        |> redirect(to: Routes.pharmacy_path(conn, :show, pharmacy))
+        |> put_session(:current_user_id, pharmacy.id)
+        |> put_flash(:info, "#{pharmacy.name} registered successfully.")
+        |> redirect(to: Routes.order_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

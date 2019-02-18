@@ -3,9 +3,12 @@ defmodule Scriptd.Accounts.Pharmacy do
   import Ecto.Changeset
 
   alias Scriptd.Accounts.Location
+  alias Comeonin.Bcrypt
 
   schema "pharmacies" do
     field :name, :string
+    field :encrypted_password, :string
+    field :username, :string
     has_many :locations, Location
     timestamps()
   end
@@ -13,7 +16,10 @@ defmodule Scriptd.Accounts.Pharmacy do
   @doc false
   def changeset(pharmacy, attrs) do
     pharmacy
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :username, :encrypted_password])
+    |> unique_constraint(:username)
+    |> validate_required([:name, :username, :encrypted_password])
+    |> update_change(:encrypted_password, &Bcrypt.hashpwsalt/1)
+
   end
 end

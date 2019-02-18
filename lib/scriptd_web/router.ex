@@ -16,7 +16,7 @@ defmodule ScriptdWeb.Router do
   scope "/", ScriptdWeb do
     pipe_through :browser
 
-    resources "/pharmacies", PharmacyController
+    resources "/pharmacies", PharmacyController, only: [:create, :new]
     resources "/patients", PatientController
     resources "/prescriptions", PrescriptionController
     resources "/locations", LocationController

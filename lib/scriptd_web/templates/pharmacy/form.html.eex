@@ -9,6 +9,14 @@
   <%= text_input f, :name %>
   <%= error_tag f, :name %>
 
+  <%= label f, :username %>
+  <%= text_input f, :username %>
+  <%= error_tag f, :username %>
+
+  <%= label f, :password, class: "control-label" %>
+  <%= password_input f, :encrypted_password, class: "form-control" %>
+  <%= error_tag f, :encrypted_password %>
+
   <div>
     <%= submit "Save" %>
   </div>
