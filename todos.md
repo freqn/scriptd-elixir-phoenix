@@ -5,4 +5,5 @@
 [x] order schema referencing patient_id, prescription_id, location_id, controller, views
 [x] seed data
 [x] assocations
-[] auth
+[x] password hashing w/comeonin
+[x] session management

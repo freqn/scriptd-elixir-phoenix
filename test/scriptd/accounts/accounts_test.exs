@@ -6,7 +6,7 @@ defmodule Scriptd.AccountsTest do
   describe "pharmacies" do
     alias Scriptd.Accounts.Pharmacy
 
-    @valid_attrs %{name: "some name"}
+    @valid_attrs %{name: "some name", username: "somename", encrypted_password: "secretpassword"}
     @update_attrs %{name: "some updated name"}
     @invalid_attrs %{name: nil}
 
